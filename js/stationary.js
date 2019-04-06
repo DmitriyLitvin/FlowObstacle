@@ -180,5 +180,3 @@ function AnotherFi(numbOfColors) {
 
 Psi(25);
 updateCanvas();
-drawLine(new Point(300, 500), new Point(375, 250), 'black', 0.5);
-drawLine(new Point(450, 500), new Point(375, 250), 'black', 0.5);
