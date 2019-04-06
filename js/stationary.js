@@ -1,7 +1,7 @@
 var canvas = document.getElementById('canvas');
 var context = canvas.getContext('2d');
 var canvasData = context.getImageData(0, 0, 750, 750);
-var task = new AlgorithmOfDiscreteFeatures(0, 0, 250);
+var task = new AlgorithmOfDiscreteFeatures(0, 0, 70);
 var gammas = task.getGammas();
 var lengthOfCanvas = canvasData.height;
 
@@ -150,7 +150,7 @@ function getIndexOfColor(currentVal, minVal, diapason, colorsLength) {
     return Math.floor(Math.round(((currentVal - minVal) / diapason) * (colorsLength - 1)));
 }
 
-function Psi(numbOfColors) {
+function psi(numbOfColors) {
     var minPsi = getMinPsi();
     var maxPsi = getMaxPsi();
     var diapason = maxPsi - minPsi;
@@ -162,9 +162,11 @@ function Psi(numbOfColors) {
             drawPixel(i, j, color.getR(), color.getG(), color.getB(), color.getA())
         }
     }
+
+    updateCanvas();
 }
 
-function Fi(numbOfColors) {
+function fi(numbOfColors) {
     var minAnotherFi = getMinAnotherFi();
     var maxAnotherFi = getMaxAnotherFi();
     var diapason = maxAnotherFi - minAnotherFi;
@@ -176,7 +178,8 @@ function Fi(numbOfColors) {
             drawPixel(i, j, color.getR(), color.getG(), color.getB(), color.getA())
         }
     }
+
+    updateCanvas();
 }
 
-generateV();
-
+psi(25);
