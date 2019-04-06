@@ -9,5 +9,3 @@
 ![Fi](https://github.com/DmitriyLitvin/FlowObstacle/blob/flow/images/psi.PNG)
 
 2) Чтобы запустить программу нужно вызвать функцию Fi() или Psi(), которые зависят только от одного параметра - кол-во цветов палитры, также можно менять угол набегающевоп потока (он задан в радианах) и кол-во дискретных особенностей. Все изменения делаем в конструкторе который создает новый обьект класса AlgorithmOfDiscreteFeatures, где первый парамет кол-во цветов палитры, второй - лучше не менять, третий - кол-во дискретны особенностей
-
-![constructor](https://github.com/DmitriyLitvin/FlowObstacle/blob/flow/images/constructor.PNG)
