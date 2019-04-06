@@ -164,7 +164,7 @@ function Psi(numbOfColors) {
     }
 }
 
-function AnotherFi(numbOfColors) {
+function Fi(numbOfColors) {
     var minAnotherFi = getMinAnotherFi();
     var maxAnotherFi = getMaxAnotherFi();
     var diapason = maxAnotherFi - minAnotherFi;
@@ -178,5 +178,5 @@ function AnotherFi(numbOfColors) {
     }
 }
 
-Psi(25);
+Fi(25);
 updateCanvas();
