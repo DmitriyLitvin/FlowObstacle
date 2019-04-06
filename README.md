@@ -1,2 +1,2 @@
 # FlowObstacle
-https://github.com/DmitriyLitvin/FlowObstacle/tree/flow/images
+https://github.com/DmitriyLitvin/FlowObstacle/tree/flow/images/fi
