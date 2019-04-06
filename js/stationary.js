@@ -178,5 +178,5 @@ function Fi(numbOfColors) {
     }
 }
 
-Fi(25);
-updateCanvas();
+generateV();
+
