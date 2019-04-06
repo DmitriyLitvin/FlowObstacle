@@ -319,8 +319,8 @@ class Gaus {
             if (d == 0) {
                 let l = k + 1;
                 while (l != sizeOfMatrix) {
-                    a = Gaus.ExchangeLinesOfMatrix(a, l, k);
-                    b = Gaus.ExchangeValuesOfVector(b, l, k);
+                    a = Gaus.exchangeLinesOfMatrix(a, l, k);
+                    b = Gaus.exchangeValuesOfVector(b, l, k);
                     if (a[k][k] != 0) {
                         break;
                     }
@@ -351,7 +351,7 @@ class Gaus {
         return b;
     }
 
-    private static ExchangeLinesOfMatrix(a: number[][], l: number, k: number): number[][] {
+    private static exchangeLinesOfMatrix(a: number[][], l: number, k: number): number[][] {
         for (let i = 0; i < a.length; i++) {
             let temp = a[l][i];
             a[l][i] = a[k][i];
@@ -361,7 +361,7 @@ class Gaus {
         return a;
     }
 
-    private static ExchangeValuesOfVector(a: number[], l: number, k: number): number[] {
+    private static exchangeValuesOfVector(a: number[], l: number, k: number): number[] {
         let temp = a[l];
         a[l] = a[k];
         a[k] = temp;

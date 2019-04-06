@@ -50,7 +50,7 @@ function generateV() {
             koef + lines[i].getPointX().getX();
         var endOfLineY = (lines[i].getPointY().getY() - lines[i].getPointX().getY()) /
             koef + lines[i].getPointX().getY();
-        drawLine(lines[i].getPointX(), new Point(endOfLineX, endOfLineY), 'blue', 0.3);
+        drawLine(lines[i].getPointX(), new Point(endOfLineX, endOfLineY), 'black', 0.5);
     }
 }
 
@@ -178,5 +178,7 @@ function AnotherFi(numbOfColors) {
     }
 }
 
-AnotherFi(25);
+Psi(25);
 updateCanvas();
+drawLine(new Point(300, 500), new Point(375, 250), 'black', 0.5);
+drawLine(new Point(450, 500), new Point(375, 250), 'black', 0.5);

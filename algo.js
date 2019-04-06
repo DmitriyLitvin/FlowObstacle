@@ -250,8 +250,8 @@ var Gaus = (function () {
             if (d == 0) {
                 var l = k + 1;
                 while (l != sizeOfMatrix) {
-                    a = Gaus.ExchangeLinesOfMatrix(a, l, k);
-                    b = Gaus.ExchangeValuesOfVector(b, l, k);
+                    a = Gaus.exchangeLinesOfMatrix(a, l, k);
+                    b = Gaus.exchangeValuesOfVector(b, l, k);
                     if (a[k][k] != 0) {
                         break;
                     }
@@ -280,7 +280,7 @@ var Gaus = (function () {
         }
         return b;
     };
-    Gaus.ExchangeLinesOfMatrix = function (a, l, k) {
+    Gaus.exchangeLinesOfMatrix = function (a, l, k) {
         for (var i = 0; i < a.length; i++) {
             var temp = a[l][i];
             a[l][i] = a[k][i];
@@ -288,7 +288,7 @@ var Gaus = (function () {
         }
         return a;
     };
-    Gaus.ExchangeValuesOfVector = function (a, l, k) {
+    Gaus.exchangeValuesOfVector = function (a, l, k) {
         var temp = a[l];
         a[l] = a[k];
         a[k] = temp;
