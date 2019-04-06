@@ -3,7 +3,8 @@
 Ниже приведен пример работы программы, когда угол набегающего потока 0, количество цветов палитры 25.
 
 + Потенциальное поле
-![Fi](https://github.com/DmitriyLitvin/FlowObstacle/blob/flow/images/fi.PNG)
+![Psi](https://github.com/DmitriyLitvin/FlowObstacle/blob/flow/images/fi.PNG)
 
 + Линии течения
+![Fi](https://github.com/DmitriyLitvin/FlowObstacle/blob/flow/images/psi.PNG)
 
