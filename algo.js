@@ -72,16 +72,16 @@ var Color = (function () {
     return Color;
 }());
 var AlgorithmOfDiscreteFeatures = (function () {
-    function AlgorithmOfDiscreteFeatures(alpha, L0, numbOfParts) {
+    function AlgorithmOfDiscreteFeatures(alpha, circulation, numbOfParts) {
         this.alpha = alpha;
-        this.L0 = L0;
+        this.circulation = circulation;
         this.numbOfParts = numbOfParts;
     }
     AlgorithmOfDiscreteFeatures.prototype.getAlpha = function () {
         return this.alpha;
     };
-    AlgorithmOfDiscreteFeatures.prototype.getL0 = function () {
-        return this.L0;
+    AlgorithmOfDiscreteFeatures.prototype.getCirculation = function () {
+        return this.circulation;
     };
     AlgorithmOfDiscreteFeatures.prototype.getNumbOfParts = function () {
         return this.numbOfParts;
@@ -158,7 +158,7 @@ var AlgorithmOfDiscreteFeatures = (function () {
             var vectN = AlgorithmOfDiscreteFeatures.getN(basePoints[i], basePoints[i + 1]);
             rightPart.push(-(vectN.getX() * Math.cos(this.alpha) + vectN.getY() * Math.sin(this.alpha)));
         }
-        rightPart.push(this.L0);
+        rightPart.push(this.circulation);
         return rightPart;
     };
     AlgorithmOfDiscreteFeatures.prototype.getLeftPart = function () {
@@ -189,7 +189,7 @@ var AlgorithmOfDiscreteFeatures = (function () {
         var sum = 0;
         var basePoints = this.getBasePoints();
         var sigma = this.getMinSigma();
-        var L0 = this.L0;
+        var L0 = this.circulation;
         for (var i = 0; i < gammas.length - 1; i++) {
             var sum1 = 0;
             for (var k = 0; k <= i; k++) {

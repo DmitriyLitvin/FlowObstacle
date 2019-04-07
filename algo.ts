@@ -99,12 +99,12 @@ class Color {
 
 class AlgorithmOfDiscreteFeatures {
     private alpha;
-    private L0;
+    private circulation;
     private numbOfParts;
 
-    public constructor(alpha: number, L0: number, numbOfParts: number) {
+    public constructor(alpha: number, circulation: number, numbOfParts: number) {
         this.alpha = alpha;
-        this.L0 = L0;
+        this.circulation = circulation;
         this.numbOfParts = numbOfParts;
     }
 
@@ -112,8 +112,8 @@ class AlgorithmOfDiscreteFeatures {
         return this.alpha;
     }
 
-    public getL0() {
-        return this.L0;
+    public getCirculation() {
+        return this.circulation;
     }
 
     public getNumbOfParts() {
@@ -212,7 +212,7 @@ class AlgorithmOfDiscreteFeatures {
             let vectN = AlgorithmOfDiscreteFeatures.getN(basePoints[i], basePoints[i + 1]);
             rightPart.push(-(vectN.getX() * Math.cos(this.alpha) + vectN.getY() * Math.sin(this.alpha)))
         }
-        rightPart.push(this.L0);
+        rightPart.push(this.circulation);
 
         return rightPart;
     }
@@ -247,7 +247,7 @@ class AlgorithmOfDiscreteFeatures {
         let sum = 0;
         let basePoints = this.getBasePoints();
         let sigma = this.getMinSigma();
-        let L0 = this.L0;
+        let L0 = this.circulation;
         for (let i = 0; i < gammas.length - 1; i++) {
             let sum1 = 0;
             for (let k = 0; k <= i; k++) {
