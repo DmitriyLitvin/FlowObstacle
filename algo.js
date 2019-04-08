@@ -189,18 +189,18 @@ var AlgorithmOfDiscreteFeatures = (function () {
         var sum = 0;
         var basePoints = this.getBasePoints();
         var sigma = this.getMinSigma();
-        var L0 = this.circulation;
+        var circulation = this.circulation;
         for (var i = 0; i < gammas.length - 1; i++) {
             var sum1 = 0;
             for (var k = 0; k <= i; k++) {
                 sum1 += gammas[k];
             }
-            var Rj = AlgorithmOfDiscreteFeatures.getR(new Point(x, y), basePoints[i], sigma);
+            var rJ = AlgorithmOfDiscreteFeatures.getR(new Point(x, y), basePoints[i], sigma);
             sum += (sum1 / (2 * Math.PI)) * ((basePoints[i + 1].getY() - basePoints[i].getY()) *
                 (x - basePoints[i].getX()) - (basePoints[i + 1].getX() - basePoints[i].getX()) *
-                (y - basePoints[i].getY())) / Math.pow(Rj, 2);
+                (y - basePoints[i].getY())) / Math.pow(rJ, 2);
         }
-        return x * Math.cos(this.alpha) + y * Math.sin(this.alpha) + sum + L0 *
+        return x * Math.cos(this.alpha) + y * Math.sin(this.alpha) + sum + circulation *
             Math.atan2(y - basePoints[gammas.length - 1].getY(), x - basePoints[gammas.length - 1].getX()) / (2 * Math.PI);
     };
     AlgorithmOfDiscreteFeatures.prototype.getPsi = function (x, y, gammas) {
@@ -215,8 +215,8 @@ var AlgorithmOfDiscreteFeatures = (function () {
     AlgorithmOfDiscreteFeatures.prototype.getGammas = function () {
         var rightPart = this.getRightPart();
         var leftPart = this.getLeftPart();
-        var Gammas = Gaus.solve(leftPart, rightPart);
-        return Gammas;
+        var gammas = Gaus.solve(leftPart, rightPart);
+        return gammas;
     };
     AlgorithmOfDiscreteFeatures.prototype.getV = function (x, y, gammas) {
         var sumOfCompsX = 0;

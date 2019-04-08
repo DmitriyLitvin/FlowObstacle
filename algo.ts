@@ -247,19 +247,19 @@ class AlgorithmOfDiscreteFeatures {
         let sum = 0;
         let basePoints = this.getBasePoints();
         let sigma = this.getMinSigma();
-        let L0 = this.circulation;
+        let circulation = this.circulation;
         for (let i = 0; i < gammas.length - 1; i++) {
             let sum1 = 0;
             for (let k = 0; k <= i; k++) {
                 sum1 += gammas[k];
             }
-            let Rj = AlgorithmOfDiscreteFeatures.getR(new Point(x, y), basePoints[i], sigma);
+            let rJ = AlgorithmOfDiscreteFeatures.getR(new Point(x, y), basePoints[i], sigma);
             sum += (sum1 / (2 * Math.PI)) * ((basePoints[i + 1].getY() - basePoints[i].getY()) *
                 (x - basePoints[i].getX()) - (basePoints[i + 1].getX() - basePoints[i].getX()) *
-                (y - basePoints[i].getY())) / Math.pow(Rj, 2)
+                (y - basePoints[i].getY())) / Math.pow(rJ, 2)
         }
 
-        return x * Math.cos(this.alpha) + y * Math.sin(this.alpha) + sum + L0 *
+        return x * Math.cos(this.alpha) + y * Math.sin(this.alpha) + sum + circulation *
             Math.atan2(y - basePoints[gammas.length - 1].getY(),
                 x - basePoints[gammas.length - 1].getX()) / (2 * Math.PI);
     }
@@ -280,9 +280,9 @@ class AlgorithmOfDiscreteFeatures {
     public getGammas(): number[] {
         let rightPart = this.getRightPart();
         let leftPart = this.getLeftPart();
-        let Gammas = Gaus.solve(leftPart, rightPart);
+        let gammas = Gaus.solve(leftPart, rightPart);
 
-        return Gammas;
+        return gammas;
     }
 
     public getV(x: number, y: number, gammas: number[]): Point {
