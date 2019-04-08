@@ -280,7 +280,7 @@ class AlgorithmOfDiscreteFeatures {
     public getGammas(): number[] {
         let rightPart = this.getRightPart();
         let leftPart = this.getLeftPart();
-        let gammas = Gaus.solve(leftPart, rightPart);
+        let gammas = new Gaus(leftPart, rightPart).solve();
 
         return gammas;
     }
@@ -302,32 +302,38 @@ class AlgorithmOfDiscreteFeatures {
     }
 }
 
-class Gaus {
+interface Solvable {
+    solve();
+}
 
-    private static clone(objectToCopy) {
-        return JSON.parse(JSON.stringify(objectToCopy));
+class Gaus implements Solvable {
+    private a: number[][];
+    private b: number[];
+
+    constructor(a: number[][], b: number[]) {
+        this.a = a;
+        this.b = b;
     }
 
-    public static solve(a: number[][], b: number[]): number[] {
+    public solve(): number[] {
+        let a = this.a;
+        let b = this.b;
         let sizeOfMatrix = b.length;
-
-        a = Gaus.clone(a);
-        b = Gaus.clone(b);
 
         for (let k = 0; k < sizeOfMatrix; k++) {
             let d = a[k][k];
             if (d == 0) {
                 let l = k + 1;
                 while (l != sizeOfMatrix) {
-                    a = Gaus.exchangeLinesOfMatrix(a, l, k);
-                    b = Gaus.exchangeValuesOfVector(b, l, k);
+                    a = this.exchangeLinesOfMatrix(a, l, k);
+                    b = this.exchangeValuesOfVector(b, l, k);
                     if (a[k][k] != 0) {
                         break;
                     }
                     l++;
                 }
                 if (l == sizeOfMatrix) {
-                    throw new Error("lines of the matrix A are linearly dependent");
+                    throw new Error("lines of the matrix 'a' are linearly dependent");
                 }
                 d = a[k][k];
             }
@@ -351,7 +357,7 @@ class Gaus {
         return b;
     }
 
-    private static exchangeLinesOfMatrix(a: number[][], l: number, k: number): number[][] {
+    private exchangeLinesOfMatrix(a: number[][], l: number, k: number): number[][] {
         for (let i = 0; i < a.length; i++) {
             let temp = a[l][i];
             a[l][i] = a[k][i];
@@ -361,7 +367,7 @@ class Gaus {
         return a;
     }
 
-    private static exchangeValuesOfVector(a: number[], l: number, k: number): number[] {
+    private exchangeValuesOfVector(a: number[], l: number, k: number): number[] {
         let temp = a[l];
         a[l] = a[k];
         a[k] = temp;

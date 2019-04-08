@@ -1,7 +1,7 @@
 var canvas = document.getElementById('canvas');
 var context = canvas.getContext('2d');
 var canvasData = context.getImageData(0, 0, 750, 750);
-var task = new AlgorithmOfDiscreteFeatures(0, 0, 70);
+var task = new AlgorithmOfDiscreteFeatures(0, 0, 150);
 var gammas = task.getGammas();
 var lengthOfCanvas = canvasData.height;
 
@@ -182,4 +182,4 @@ function fi(numbOfColors) {
     updateCanvas();
 }
 
-psi(25);
+fi(25);

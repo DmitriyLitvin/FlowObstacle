@@ -215,7 +215,7 @@ var AlgorithmOfDiscreteFeatures = (function () {
     AlgorithmOfDiscreteFeatures.prototype.getGammas = function () {
         var rightPart = this.getRightPart();
         var leftPart = this.getLeftPart();
-        var gammas = Gaus.solve(leftPart, rightPart);
+        var gammas = new Gaus(leftPart, rightPart).solve();
         return gammas;
     };
     AlgorithmOfDiscreteFeatures.prototype.getV = function (x, y, gammas) {
@@ -236,29 +236,28 @@ var AlgorithmOfDiscreteFeatures = (function () {
     return AlgorithmOfDiscreteFeatures;
 }());
 var Gaus = (function () {
-    function Gaus() {
+    function Gaus(a, b) {
+        this.a = a;
+        this.b = b;
     }
-    Gaus.clone = function (objectToCopy) {
-        return JSON.parse(JSON.stringify(objectToCopy));
-    };
-    Gaus.solve = function (a, b) {
+    Gaus.prototype.solve = function () {
+        var a = this.a;
+        var b = this.b;
         var sizeOfMatrix = b.length;
-        a = Gaus.clone(a);
-        b = Gaus.clone(b);
         for (var k = 0; k < sizeOfMatrix; k++) {
             var d = a[k][k];
             if (d == 0) {
                 var l = k + 1;
                 while (l != sizeOfMatrix) {
-                    a = Gaus.exchangeLinesOfMatrix(a, l, k);
-                    b = Gaus.exchangeValuesOfVector(b, l, k);
+                    a = this.exchangeLinesOfMatrix(a, l, k);
+                    b = this.exchangeValuesOfVector(b, l, k);
                     if (a[k][k] != 0) {
                         break;
                     }
                     l++;
                 }
                 if (l == sizeOfMatrix) {
-                    throw new Error("lines of the matrix A are linearly dependent");
+                    throw new Error("lines of the matrix 'a' are linearly dependent");
                 }
                 d = a[k][k];
             }
@@ -280,7 +279,7 @@ var Gaus = (function () {
         }
         return b;
     };
-    Gaus.exchangeLinesOfMatrix = function (a, l, k) {
+    Gaus.prototype.exchangeLinesOfMatrix = function (a, l, k) {
         for (var i = 0; i < a.length; i++) {
             var temp = a[l][i];
             a[l][i] = a[k][i];
@@ -288,7 +287,7 @@ var Gaus = (function () {
         }
         return a;
     };
-    Gaus.exchangeValuesOfVector = function (a, l, k) {
+    Gaus.prototype.exchangeValuesOfVector = function (a, l, k) {
         var temp = a[l];
         a[l] = a[k];
         a[k] = temp;
