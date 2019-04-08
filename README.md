@@ -13,8 +13,8 @@ This program visualizes the process of a river flowing around a particular obsta
 ## Start
 If you want to start the program, you need to call the fi () or psi () or generateV() function in the stationary.js file.
 
-+ fi (numbOfColors) visualizes a flow lines,/*flow lines - линии течения
-+ psi (numbOfColors) visualizes a potential field,/* potential field - потенциальное поле
-+ generateV() visualizes a vector field./*vector field - векторное поле
++ fi (numbOfColors) visualizes a flow lines,
++ psi (numbOfColors) visualizes a potential field,
++ generateV() visualizes a vector field.
 
 You can also change the angle of  incident flow (it is specified in radians) and the number of discrete features . All changes are made in the constructor which creates a new object of the AlgorithmOfDiscreteFeatures class, where the first parameter is the number of colors of the palette, the second is the flow circulation, the third is the number of discrete features.
