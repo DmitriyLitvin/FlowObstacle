@@ -1,16 +1,20 @@
 # FlowObstacle
 
-## Цель проекта
-Данная программа визуализирует процесс обтекания течения реки вокруг конкретного препятствия, в данном случае буквы Л, которая находится в центре области визуализации. Для того чтобы показать поведение течения реки, была использована библиотека Canvas и следующие языки программирования: JS и TypeScript, на котором и был реализован метод "Дискретных особенностей".
-Ниже приведен пример работы программы, когда угол набегающего потока 0, количество цветов палитры 25.
-
-+ Потенциальное поле
+## Project purpose
+This program visualizes the process of a river flowing around a particular obstacle (in this case the inverted letter V), which is located in the center of visualization area. In order to show the behavior of the river flow, I used the Canvas library and JS & TypeScript. Using TypeScript language, I have implemented the algorithm of Discrete Features which can solve this task. Below you can see  how this program works when the angle of  incident flow is 0, the number of colors on the palette is 25.
++ Potential field
 
 ![Psi](https://github.com/DmitriyLitvin/FlowObstacle/blob/flow/images/fi.PNG)
 
-+ Линии течения
++ Flow lines
 
 ![Fi](https://github.com/DmitriyLitvin/FlowObstacle/blob/flow/images/psi.PNG)
 
-## Запуск
-Чтобы запустить программу нужно вызвать функцию fi() или psi() в файле stationary.js, которые зависят только от одного параметра - кол-во цветов палитры, также можно менять угол набегающевоп потока (он задан в радианах) и кол-во дискретных особенностей. Все изменения делаем в конструкторе который создает новый обьект класса AlgorithmOfDiscreteFeatures, где первый параметр кол-во цветов палитры, второй - циркуляция течения, третий - кол-во дискретны особенностей.
+## Start
+If you want to start the program, you need to call the fi () or psi () or generateV() function in the stationary.js file.
+
++ fi (numbOfColors) visualizes a flow lines,/*flow lines - линии течения
++ psi (numbOfColors) visualizes a potential field,/* potential field - потенциальное поле
++ generateV() visualizes a vector field./*vector field - векторное поле
+
+You can also change the angle of  incident flow (it is specified in radians) and the number of discrete features . All changes are made in the constructor which creates a new object of the AlgorithmOfDiscreteFeatures class, where the first parameter is the number of colors of the palette, the second is the flow circulation, the third is the number of discrete features.
