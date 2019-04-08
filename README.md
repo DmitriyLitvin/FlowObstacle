@@ -1,7 +1,7 @@
 # FlowObstacle
 
 ## Project purpose
-This program visualizes the process of a river flowing around a particular obstacle (in this case the inverted letter V), which is located in the center of visualization area. In order to show the behavior of the river flow, I used the Canvas library and JS & TypeScript. Using TypeScript language, I have implemented the algorithm of Discrete Features which can solve this task. Below you can see  how this program works when the angle of  incident flow is 0, the number of colors on the palette is 25.
+This program visualizes the process of a river flowing around a particular obstacle (in this case the inverted letter V), which is located in the center of visualization area. In order to show the behavior of the river flow, I used the Canvas library and JS & TypeScript. Using Typescript language, I have implemented the algorithm of Discrete Features which can solve this task. Below you can see  how this program works when the angle of  incident flow is 0, the number of colors on the palette is 25.
 + Potential field
 
 ![Psi](https://github.com/DmitriyLitvin/FlowObstacle/blob/flow/images/fi.PNG)
